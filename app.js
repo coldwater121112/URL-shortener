@@ -41,8 +41,8 @@ app.post("/", (req, res) => {
   }
   const originalURL = req.body.url;
   const transferURL = generateURL();
-  console.log(req.body.url);
-  console.log(req.headers);
+  // console.log(req.body.url);
+  // console.log(req.headers);
 
   shortenURL.findOne({ URL: originalURL })
     .lean()
@@ -54,7 +54,7 @@ app.post("/", (req, res) => {
       }
     })
     .then(url => {
-      console.log("AAA", url.transferURL);
+      // console.log("AAA", url.transferURL);
       res.render('shorten', { originalURL: originalURL, transferURL: url.transferURL });
     })
     .catch(error => console.error(error));
@@ -63,11 +63,11 @@ app.post("/", (req, res) => {
 
 app.get("/:shortURL", (req, res) => {
   const { shortURL } = req.params
-  console.log(shortURL)
+  // console.log(shortURL)
   shortenURL.findOne({ transferURL: shortURL })
     .then(url => {
       if (url) {
-        console.log(url)
+        // console.log(url)
         res.redirect(url.URL)
       } else {
         console.log('Short URL not found')
