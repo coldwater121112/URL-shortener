@@ -27,6 +27,5 @@ function generate_URL() {
   return transferURL
 }
 
-
 // export generate URL function for other files to use
 module.exports = generate_URL
