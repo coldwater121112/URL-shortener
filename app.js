@@ -1,6 +1,7 @@
 // app.js
 const express = require('express')
 const exphbs = require('express-handlebars');
+const generateURL = require('./generate_URL')
 const mongoose = require('mongoose') // 載入 mongoose
 
 // 加入這段 code, 僅在非正式環境時, 使用 dotenv
@@ -27,6 +28,8 @@ db.once('open', () => {
 // 設定路由
 // 首頁
 app.get('/', (req, res) => {
+  const transferURL = generateURL()
+  // console.log(transferURL)、
   res.render('index')
 })
 
