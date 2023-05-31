@@ -9,4 +9,5 @@ const shortenURLSchema = new Schema({
     type: String, // 資料型別是字串
   }
 })
+
 module.exports = mongoose.model('shortenURL', shortenURLSchema)
